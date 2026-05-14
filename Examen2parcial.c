@@ -115,17 +115,13 @@ int main(){
                 }
                 ptrAux = ptr;
 
-                    while(ptrAux->Sig->Sig != ptr){
-                        ptrAux = ptrAux->Sig;
-                    }
-
+                do{
                     ptrTemp = ptrAux->Sig;
+                    free(ptrAux);
 
-                    ptrAux->Sig = ptr;
-                    ptr->Ant = ptrAux;
-
-                    free(ptrTemp);
-                ptr= NULL;
+                    ptrAux=ptrTemp;
+                }while(ptrAux != ptr);
+                ptr=NULL;
                 printf("Nodos eliminados\n");
                 break;
 
