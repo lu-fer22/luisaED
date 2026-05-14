@@ -110,6 +110,23 @@ int main(){
 
             case 4:
                 printf("salida\n");
+                if(ptr == NULL){
+                    printf("No hay datos guardados\n");
+                }
+                ptrAux = ptr;
+
+                    while(ptrAux->Sig->Sig != ptr){
+                        ptrAux = ptrAux->Sig;
+                    }
+
+                    ptrTemp = ptrAux->Sig;
+
+                    ptrAux->Sig = ptr;
+                    ptr->Ant = ptrAux;
+
+                    free(ptrTemp);
+                ptr= NULL;
+                printf("Nodos eliminados\n");
                 break;
 
             default:
